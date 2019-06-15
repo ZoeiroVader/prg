@@ -1,0 +1,33 @@
+doctype html
+- var ncwtc = ['container', 'nes-container', 'with-title', 'is-centered', 'is-dark']
+- var ncwt = ['container', 'nes-container', 'with-title', 'is-dark']
+- var nc = ['container', 'nes-container', 'is-centered','is-dark']
+- var img = { map : 'assets/img/map.png', arrow_gif: 'assets/img/arrowselect.gif'}
+html(lang="pt-br")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Everything
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+        link(rel="stylesheet" href="assets/css/index.css")
+        link(href="https://fonts.googleapis.com/css?family=Maven+Pro|Yrsa|Press+Start+2P" rel="stylesheet")
+        link(href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet")
+    body
+        .row.container.mx-auto
+            div(class=ncwtc).col-md-8.map
+                p.title Map
+                img(src=img.map).img-responsive
+                img(src=img.arrow_gif).moving-arrow
+                    
+            div(class=ncwtc).col.bag
+                p.title Bag
+            div(class=ncwt).col.actions
+                p.title#actions_log Actions
+                    p Passingerisas
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js")
+    //- script(src="js/p5gif.js")
+    //- script(src="js/sketch.js")
+    script(src="assets/js/anime.min.js")
+    script(src="assets/js/animations.js")
+
+
