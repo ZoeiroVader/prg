@@ -1,0 +1,25 @@
+{
+  "name": "prg",
+  "version": "1.0.0",
+  "description": "A game that is actualy a fake game, built with animejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "pug -w ./pug/ -o ./src -P"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZoeiroVader/prg.git"
+  },
+  "keywords": [
+    "game",
+    "rpg",
+    "animejs",
+    "api"
+  ],
+  "author": "ZoeiroVader || Algalord666",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZoeiroVader/prg/issues"
+  },
+  "homepage": "https://github.com/ZoeiroVader/prg#readme"
+}

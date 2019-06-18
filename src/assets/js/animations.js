@@ -1,12 +1,33 @@
 var distances = [0, 180, 350]
-var locations = ['Tutorial dos Humilde', 'Master Land', 'LMOA Kingdom']
+var locations = [
+  {
+    name: 'Tutorial dos Humilde',
+    info: 'Local destinado a iniciantes, monstros que podem aparecer: Goblin, Ratos, Slimes'
+  }, 
+  {
+    name:'Master Land',
+    info: 'Local destinado a aventureiros, monstros que podem aparecer: Lobos, Orcs, Zumbis'
+  }, 
+  {
+    name:'LMOA Kingdom',
+    info: 'Local destinado a Mestres, monstros que podem aparecer: Dragões, Machos alpha, Feministas, Rei Goblin'
+  }]
 var arrowLocation = 0;
 var scenes = {
-  map: true,
+  map: {
+    active: true,
+    scene: ()=>{
+      actions_log.innerHTML = locations[0].name;
+      info.innerHTML = locations[0].info;
+      screen.innerHTML = `
+        <p class="title">Map</p><img class="img-responsive" src="assets/img/map.png"><img class="moving-arrow" src="assets/img/arrowselect.gif">
+      `
+    }
+  },
   battle: false
 }
 var mapLocation = { name: '', distance: ''}
-
+scenes.map.scene();
 document.onkeydown = btnListener;
 function update(obj) {
   anime(obj);
@@ -17,6 +38,7 @@ function isUndefined(thing) {
   else
     return false
 }
+
 function btnListener(e) {
 
     e = e || window.event;
@@ -62,7 +84,8 @@ function moveArrowLocation(way) {
           arrowLocation = 0
           i = 0
         }
-        actions_log.innerHTML = `Entrar na terra de ${isUndefined(locations[i]) ? locations[i -1]: locations[i]}`
+        actions_log.innerHTML = `${isUndefined(locations[i].name) ? locations[i -1].name: locations[i].name}`
+        info.innerHTML = `${isUndefined(locations[i].info) ? locations[i -1].info: locations[i].info}`
         break;
       }
     }
@@ -77,7 +100,8 @@ function moveArrowLocation(way) {
           arrowLocation = 350
           i = distances.length -1
         }
-        actions_log.innerHTML = `Entrar na terra de ${isUndefined(locations[i]) ? locations[i +1]: locations[i]}`
+        actions_log.innerHTML = `Entrar na terra de ${isUndefined(locations[i].name) ? locations[i +1].name: locations[i].name}`
+        info.innerHTML = `${isUndefined(locations[i].info) ? locations[i +1].info: locations[i].info}`
         break;
       }
     }

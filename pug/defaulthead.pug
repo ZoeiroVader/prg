@@ -14,13 +14,14 @@ html(lang="pt-br")
         link(href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet")
     body
         .row.container.mx-auto
-            div(class=ncwtc).col-md-8.map
+            div(class=ncwtc).col-md-8.screen#screen
                 p.title Map
                 img(src=img.map).img-responsive
                 img(src=img.arrow_gif).moving-arrow
                     
-            div(class=ncwtc).col.bag
-                p.title Bag
+            div(class=ncwtc).col.info
+                p.title Info
+                p#info
             div(class=ncwt).col.actions
                 p.title#actions_log Actions
                     p Passingerisas
