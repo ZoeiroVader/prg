@@ -20,4 +20,18 @@ body {
   top: 180px;
   left: 22%;
 }
+
+.hero {
+  position: absolute;
+  top: 215px;
+  left: 15%;
+}
+
+.monstar {
+  position: absolute;
+  top: 215px;
+  right: 15%;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
 /*# sourceMappingURL=index.css.map */

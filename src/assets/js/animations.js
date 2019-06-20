@@ -1,4 +1,13 @@
+var screen = document.getElementById('screen');
 var distances = [0, 180, 350]
+var monstars = [
+  { 
+    name: 'Jonson',
+    strength : 12,
+    life: 12,
+    skills: [{}]
+  }
+] 
 var locations = [
   {
     name: 'Tutorial dos Humilde',
@@ -15,19 +24,33 @@ var locations = [
 var arrowLocation = 0;
 var scenes = {
   map: {
-    active: true,
+    active: false,
     scene: ()=>{
-      actions_log.innerHTML = locations[0].name;
+      actions_log_title.innerHTML = `Entrar na terra de ${locations[0].name}`;
       info.innerHTML = locations[0].info;
       screen.innerHTML = `
-        <p class="title">Map</p><img class="img-responsive" src="assets/img/map.png"><img class="moving-arrow" src="assets/img/arrowselect.gif">
+        <p class="title">Map</p><img class="img-responsive" src="assets/img/map.png">
+        <img class="moving-arrow" src="assets/img/arrowselect.gif">
       `
     }
   },
-  battle: false
+  battle: {
+    active: false,
+    scene : ()=>{
+        console.log("as");
+        actions_log_title.innerHTML = `Batalha contra ${monstars[0].name}`;
+        info.innerHTML = locations[0].info;
+        screen.innerHTML = `
+          <img src="assets/img/battleBackground.png">
+          <img class="monstar" src="assets/img/monstar.gif">
+          <img class="monstar" src="assets/img/mattack.gif">
+          <img class="hero" src="assets/img/hero.gif">
+        `
+    }
+  }
 }
 var mapLocation = { name: '', distance: ''}
-scenes.map.scene();
+scenes.battle.scene();
 document.onkeydown = btnListener;
 function update(obj) {
   anime(obj);
@@ -84,7 +107,7 @@ function moveArrowLocation(way) {
           arrowLocation = 0
           i = 0
         }
-        actions_log.innerHTML = `${isUndefined(locations[i].name) ? locations[i -1].name: locations[i].name}`
+        actions_log_title.innerHTML = `Entrar na terra de ${isUndefined(locations[i].name) ? locations[i -1].name: locations[i].name}`
         info.innerHTML = `${isUndefined(locations[i].info) ? locations[i -1].info: locations[i].info}`
         break;
       }
